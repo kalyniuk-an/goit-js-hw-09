@@ -78,7 +78,6 @@ const galleryItems = images.map((image) => {
     <img
       class="gallery-image"
       src="${preview}"
-      // data-source="${original}"
       alt="${description}"
     />
   </a>
