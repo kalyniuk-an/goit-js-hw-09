@@ -70,9 +70,7 @@ const images = [
 
 const gallery = document.querySelector('.gallery');
 
-const galleryItems = images.map((image) => {
-  const { preview, original, description } = image;
- 
+function createGalleryItems({ preview, original, description }) {
   return `<li class="gallery-item">
   <a class="gallery-link" href="${original}">
     <img
@@ -83,9 +81,15 @@ const galleryItems = images.map((image) => {
   </a>
 </li>`;
 }
-)
 
-gallery.innerHTML = galleryItems.join('');
+function renderGallery(imeges) {
+  return images.map(createGalleryItems).join('');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const markUp = renderGallery(images);
+  gallery.innerHTML = markUp;
+});
 
 const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
